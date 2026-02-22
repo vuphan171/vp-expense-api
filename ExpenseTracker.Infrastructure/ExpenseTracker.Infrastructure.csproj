@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ExpenseTracker.Application\ExpenseTracker.Application.csproj" />
+      <ProjectReference Include="..\ExpenseTracker.Domain\ExpenseTracker.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.66" />
+      <PackageReference Include="Dapper.SimpleSqlBuilder" Version="4.2.3" />
+      <PackageReference Include="Dapper.SqlBuilder" Version="2.1.66" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.3" />
+      <PackageReference Include="Npgsql" Version="10.0.1" />
+    </ItemGroup>
+
+</Project>

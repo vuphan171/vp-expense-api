@@ -1,0 +1,12 @@
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/bin/Debug/net8.0/ExpenseTracker.Domain.deps.json
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/bin/Debug/net8.0/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/bin/Debug/net8.0/ExpenseTracker.Domain.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.AssemblyInfoInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.AssemblyInfo.cs
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.csproj.CoreCompileInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/refint/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ref/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Domain/obj/Debug/net8.0/ExpenseTracker.Domain.csproj.AssemblyReference.cache

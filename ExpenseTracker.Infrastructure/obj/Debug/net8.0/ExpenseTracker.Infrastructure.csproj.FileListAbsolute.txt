@@ -1,0 +1,17 @@
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Infrastructure.deps.json
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Infrastructure.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Infrastructure.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Application.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Application.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/bin/Debug/net8.0/ExpenseTracker.Domain.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.csproj.AssemblyReference.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.AssemblyInfoInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.AssemblyInfo.cs
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseT.546500FC.Up2Date
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/refint/ExpenseTracker.Infrastructure.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ExpenseTracker.Infrastructure.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Infrastructure/obj/Debug/net8.0/ref/ExpenseTracker.Infrastructure.dll

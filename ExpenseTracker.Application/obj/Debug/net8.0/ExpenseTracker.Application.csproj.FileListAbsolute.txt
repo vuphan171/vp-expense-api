@@ -1,0 +1,15 @@
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/bin/Debug/net8.0/ExpenseTracker.Application.deps.json
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/bin/Debug/net8.0/ExpenseTracker.Application.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/bin/Debug/net8.0/ExpenseTracker.Application.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/bin/Debug/net8.0/ExpenseTracker.Domain.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/bin/Debug/net8.0/ExpenseTracker.Domain.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.csproj.AssemblyReference.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.AssemblyInfoInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.AssemblyInfo.cs
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.csproj.CoreCompileInputs.cache
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseT.086D7044.Up2Date
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/refint/ExpenseTracker.Application.dll
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ExpenseTracker.Application.pdb
+/Users/phantuanvu/RiderProjects/ExpenseTrackerSolution/ExpenseTracker.Application/obj/Debug/net8.0/ref/ExpenseTracker.Application.dll
