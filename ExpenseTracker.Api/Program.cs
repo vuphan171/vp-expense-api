@@ -1,6 +1,7 @@
 using System.Text;
 using System.Text.Json;
 using ExpenseTracker.Api.Common;
+using ExpenseTracker.Api.Middleware;
 using ExpenseTracker.Application.Abstractions;
 using ExpenseTracker.Application.Features.Auth;
 using ExpenseTracker.Application.Features.Customers;
@@ -113,6 +114,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseExceptionHandlingMiddleware();
 
 app.UseHttpsRedirection();
 
