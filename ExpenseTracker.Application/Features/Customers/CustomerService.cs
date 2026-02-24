@@ -1,6 +1,6 @@
 using ExpenseTracker.Application.Common.Models;
 using ExpenseTracker.Application.Features.Customers.Dtos;
-using ExpenseTracker.Domain.Customers;
+using ExpenseTracker.Domain.Features.Customers;
 using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseTracker.Application.Features.Customers;

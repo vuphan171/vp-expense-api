@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/ExpenseTracker.Infrastructure/Customers/CustomerRepository.cs" value="f83a6b00-9d47-4528-afa0-4e61bb30ed88" />
+    <file url="file://$PROJECT_DIR$/ExpenseTracker.Infrastructure/Persistence/Customers/CustomerRepository.cs" value="f83a6b00-9d47-4528-afa0-4e61bb30ed88" />
     <file url="file://$PROJECT_DIR$/ExpenseTracker.Infrastructure/Persistence/Migrations/202602210001_CreateCustomer.sql" value="f83a6b00-9d47-4528-afa0-4e61bb30ed88" />
   </component>
 </project>

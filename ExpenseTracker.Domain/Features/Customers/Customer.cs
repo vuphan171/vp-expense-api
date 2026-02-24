@@ -2,7 +2,7 @@
 using ExpenseTracker.Domain.Common;
 using System.Text.Json.Serialization;
 
-namespace ExpenseTracker.Domain.Customers;
+namespace ExpenseTracker.Domain.Features.Customers;
 
 public class Customer : BaseEntity
 {

@@ -1,5 +1,5 @@
 using ExpenseTracker.Application.Abstractions;
-using ExpenseTracker.Domain.Customers;
+using ExpenseTracker.Domain.Features.Customers;
 using Dapper;
 
 
@@ -7,7 +7,26 @@ namespace ExpenseTracker.Infrastructure.Customers;
 
 public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
 {
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
+
+    public async Task<Customer?> GetCustomerByEmailAsync(string email)
+    {
+        var builder = new SqlBuilder();
+        
+        var sql = builder.AddTemplate(@"Select /**select**/ From customer WHERE email = @Email;");
+
+        builder.Select(@"id, first_name, last_name, email, date_of_birth, created_at, updated_at, password_hash");
+        
+        builder.AddParameters(new
+        {
+            Email = email
+        });
+        
+       var customer =  await unitOfWork.Connection.QuerySingleOrDefaultAsync<Customer>(sql.RawSql, sql.Parameters);
+
+       return customer;
+
+    }
+    
 
     public async Task<Customer> AddAsync(Customer customer)
     {
@@ -32,7 +51,7 @@ public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
 
         builder.AddParameters(customer);
 
-        await _unitOfWork.Connection.ExecuteAsync(
+        await unitOfWork.Connection.ExecuteAsync(
             template.RawSql,
             template.Parameters
         );
@@ -65,7 +84,7 @@ public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
             PageSize = pageSize
         });
 
-        var multi = await _unitOfWork.Connection.QueryMultipleAsync(
+        var multi = await unitOfWork.Connection.QueryMultipleAsync(
             sql.RawSql,
             sql.Parameters
         );
