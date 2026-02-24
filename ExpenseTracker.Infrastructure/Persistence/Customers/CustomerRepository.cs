@@ -3,7 +3,7 @@ using ExpenseTracker.Domain.Features.Customers;
 using Dapper;
 
 
-namespace ExpenseTracker.Infrastructure.Customers;
+namespace ExpenseTracker.Infrastructure.Persistence.Customers;
 
 public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
 {
