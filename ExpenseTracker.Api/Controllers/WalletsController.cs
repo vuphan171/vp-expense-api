@@ -17,10 +17,7 @@ public class WalletsController(WalletService walletService) : BaseApiController
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<ActionResult<PagedResult<WalletResponseDto>>> Get([FromQuery] PaginationRequest request)
     {
-        var mockGuid = Guid.Parse("09fe5a14-0b6e-45e5-bac9-52c905af6440");
-        var wallets = await walletService.GetAllByCustomerAsync(mockGuid,request);
+        var wallets = await walletService.GetAllByCustomerAsync(request);
         return Ok(wallets);
     }
-
-   
 }

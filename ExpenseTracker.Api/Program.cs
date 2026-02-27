@@ -1,7 +1,6 @@
 using System.Text;
 using System.Text.Json;
 using ExpenseTracker.Api.Common;
-using ExpenseTracker.Api.Middleware;
 using ExpenseTracker.Application.Abstractions;
 using ExpenseTracker.Application.Features.Auth;
 using ExpenseTracker.Application.Features.Customers;
@@ -16,10 +15,13 @@ using ExpenseTracker.Infrastructure.Persistence;
 using ExpenseTracker.Infrastructure.Persistence.Wallets;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
+JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,11 +38,15 @@ builder.Services.AddScoped<
     PasswordHasher<Customer>
 >();
 
+
 builder.Services.AddScoped<AuthService>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<WalletService>();
 builder.Services.AddScoped<IWalletRepository, WalletRepository>();
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -51,6 +57,7 @@ builder.Services.AddAuthentication("Bearer")
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
+            ClockSkew = TimeSpan.Zero,    
             ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
             ValidAudience = builder.Configuration["JwtSettings:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(
@@ -116,12 +123,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 //app.UseExceptionHandlingMiddleware();
 
-app.UseHttpsRedirection();
+
 
 app.MapControllers();
 

@@ -1,14 +1,17 @@
 using ExpenseTracker.Application.Common.Models;
 using ExpenseTracker.Application.Features.Wallets.Dtos;
+using ExpenseTracker.Application.Interfaces;
 using ExpenseTracker.Domain.Features.Wallets;
 
 namespace ExpenseTracker.Application.Features.Wallets;
 
-public class WalletService(IWalletRepository repository)
+public class WalletService(IWalletRepository repository, ICurrentUserService currentUserService)
 {
-    public async Task<PagedResult<WalletResponseDto>> GetAllByCustomerAsync(Guid customerId, PaginationRequest request)
+    public async Task<PagedResult<WalletResponseDto>> GetAllByCustomerAsync( PaginationRequest request)
     {
-        var (items, totalCount) = await repository.GetAllByCustomerAsync(customerId, request.Page, request.PageSize);
+        var userId = currentUserService.GetUserId();
+        
+        var (items, totalCount) = await repository.GetAllByCustomerAsync(userId, request.Page, request.PageSize);
 
         var wallets = items.Select(w => new WalletResponseDto
         {

@@ -1,11 +1,11 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
 using ExpenseTracker.Application.Interfaces;
 using ExpenseTracker.Application.Settings;
 using ExpenseTracker.Domain.Features.Customers;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+
 
 namespace ExpenseTracker.Infrastructure.Features;
 
@@ -19,24 +19,26 @@ public class JwtTokenService(IOptions<JwtSettings> jwtSettings) : IJwtTokenServi
 
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        var claims = new[]
+        var claims = new Dictionary<string, object>
         {
-            new Claim(JwtRegisteredClaimNames.Sub, customer.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.Email, customer.Email),
-            new Claim("firstName", customer.FirstName),
-            new Claim("lastName", customer.LastName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            [JwtRegisteredClaimNames.Sub] = customer.Id.ToString(),
+            [JwtRegisteredClaimNames.Email] = customer.Email,
+            ["firstName"] = customer.FirstName,
+            ["lastName"] = customer.LastName,
+            [JwtRegisteredClaimNames.Jti] = Guid.NewGuid().ToString()
+        };
+        
+        
+        var tokenDescriptor = new SecurityTokenDescriptor
+        {
+            Issuer = _jwtSettings.Issuer,
+            Audience = _jwtSettings.Audience,
+            Expires = DateTime.UtcNow.AddMinutes(1),
+            SigningCredentials = credentials,
+            Claims = claims
         };
 
-        var token = new JwtSecurityToken(
-            issuer: _jwtSettings.Issuer,
-            audience: _jwtSettings.Audience,
-            claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiresMinutes),
-            signingCredentials: credentials
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        return new JsonWebTokenHandler().CreateToken(tokenDescriptor);
     }
 
     public bool ValidateToken(string token)
