@@ -23,7 +23,7 @@ public class CustomersController(CustomerService customerService) : BaseApiContr
     }
 
     [HttpPost]
-    [Authorize]
+    [AllowAnonymous]
     public async Task<ActionResult<Customer>> Post([FromBody] CreateCustomerDto request)
     {
         var result = await customerService.CreateAsync(request);

@@ -8,12 +8,12 @@ CREATE TABLE public.customer
     id            uuid PRIMARY KEY      DEFAULT gen_random_uuid(),
     first_name    varchar(100) NOT NULL,
     last_name     varchar(100) NOT NULL,
-    email         citext       NOT NULL,
+    email         citext       NOT NULL CHECK (char_length(email) <= 50),
     date_of_birth timestamp    NOT NULL,
     password_hash text         NOT NULL,
     is_active     boolean      NOT NULL DEFAULT true,
     created_at    timestamptz  NOT NULL DEFAULT now(),
-    updated_at    timestamptz  NULL
+    updated_at    timestamptz  NOT NULL DEFAULT now()
 );
 
 ALTER TABLE public.customer

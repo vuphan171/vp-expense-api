@@ -7,26 +7,24 @@ namespace ExpenseTracker.Infrastructure.Persistence.Customers;
 
 public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
 {
-
     public async Task<Customer?> GetCustomerByEmailAsync(string email)
     {
         var builder = new SqlBuilder();
-        
+
         var sql = builder.AddTemplate(@"Select /**select**/ From customer WHERE email = @Email;");
 
         builder.Select(@"id, first_name, last_name, email, date_of_birth, created_at, updated_at, password_hash");
-        
+
         builder.AddParameters(new
         {
             Email = email
         });
-        
-       var customer =  await unitOfWork.Connection.QuerySingleOrDefaultAsync<Customer>(sql.RawSql, sql.Parameters);
 
-       return customer;
+        var customer = await unitOfWork.Connection.QuerySingleOrDefaultAsync<Customer>(sql.RawSql, sql.Parameters);
 
+        return customer;
     }
-    
+
 
     public async Task<Customer> AddAsync(Customer customer)
     {
@@ -46,17 +44,17 @@ public class CustomerRepository(IUnitOfWork unitOfWork) : ICustomerRepository
             @Email,
             @DateOfBirth,
             @PasswordHash
-        );
+        ) RETURNING *;
     ");
 
         builder.AddParameters(customer);
 
-        await unitOfWork.Connection.ExecuteAsync(
+        var result = await unitOfWork.Connection.QuerySingleAsync<Customer>(
             template.RawSql,
             template.Parameters
         );
 
-        return customer;
+        return result;
     }
 
     public async Task<(List<Customer> Items, int TotalCount)> GetCustomersAsync(int pageNumber, int pageSize)

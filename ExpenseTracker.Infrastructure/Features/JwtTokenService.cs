@@ -27,22 +27,17 @@ public class JwtTokenService(IOptions<JwtSettings> jwtSettings) : IJwtTokenServi
             ["lastName"] = customer.LastName,
             [JwtRegisteredClaimNames.Jti] = Guid.NewGuid().ToString()
         };
-        
-        
+
+
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Issuer = _jwtSettings.Issuer,
             Audience = _jwtSettings.Audience,
-            Expires = DateTime.UtcNow.AddMinutes(1),
+            Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpiresMinutes),
             SigningCredentials = credentials,
             Claims = claims
         };
 
         return new JsonWebTokenHandler().CreateToken(tokenDescriptor);
-    }
-
-    public bool ValidateToken(string token)
-    {
-        throw new NotImplementedException();
     }
 }

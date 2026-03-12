@@ -33,4 +33,21 @@ public class WalletService(IWalletRepository repository, ICurrentUserService cur
             PageSize = request.PageSize
         };
     }
+
+    public async Task<Wallet> CreateAsync(CreateWalletDto createWalletDto)
+    {
+        var customerId = currentUserService.GetUserId();
+        var wallet = new Wallet
+        {
+            CustomerId = customerId,
+            WalletName = createWalletDto.WalletName,
+            Balance = createWalletDto.Balance,
+            Currency = createWalletDto.Currency,
+            IsActive = true
+        };
+        
+        var result = await repository.AddAsync(wallet);
+        
+        return result;
+    }
 }

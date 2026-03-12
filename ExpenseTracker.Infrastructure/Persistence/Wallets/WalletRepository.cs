@@ -6,9 +6,42 @@ namespace ExpenseTracker.Infrastructure.Persistence.Wallets;
 
 public class WalletRepository(IUnitOfWork unitOfWork) : IWalletRepository
 {
-    public Task<Wallet> AddAsync(Wallet entity)
+    public async Task<Wallet> AddAsync(Wallet entity)
     {
-        throw new NotImplementedException();
+        var builder = new SqlBuilder();
+
+
+        var sql = builder.AddTemplate(@"
+        INSERT INTO public.wallet (
+            wallet_name,
+            customer_id, 
+            balance, 
+            currency,
+            is_active
+        ) VALUES (
+            @wallet_name,
+            @customer_id,
+            @balance,
+            @currency,
+            @is_active      
+        ) RETURNING *;
+    ");
+
+        builder.AddParameters(new
+        {
+            wallet_name = entity.WalletName,
+            customer_id = entity.CustomerId,
+            balance = entity.Balance,
+            currency = entity.Currency,
+            is_active = entity.IsActive
+        });
+
+       var result =  await unitOfWork.Connection.QuerySingleAsync<Wallet>(
+            sql.RawSql,
+            sql.Parameters
+        );
+
+        return result;
     }
 
     public Task<(List<Wallet> Items, int TotalCount)> GetAllAsync(int pageNumber, int pageSize)
@@ -17,7 +50,8 @@ public class WalletRepository(IUnitOfWork unitOfWork) : IWalletRepository
     }
 
 
-    public async Task<(List<Wallet> Items, int TotalCount)> GetAllByCustomerAsync(Guid customerId, int pageNumber, int pageSize)
+    public async Task<(List<Wallet> Items, int TotalCount)> GetAllByCustomerAsync(Guid customerId, int pageNumber,
+        int pageSize)
     {
         var offset = (pageNumber - 1) * pageSize;
 
@@ -64,6 +98,4 @@ public class WalletRepository(IUnitOfWork unitOfWork) : IWalletRepository
     {
         throw new NotImplementedException();
     }
-
-   
 }

@@ -3,15 +3,18 @@ using System.Text.Json;
 using ExpenseTracker.Api.Common;
 using ExpenseTracker.Application.Abstractions;
 using ExpenseTracker.Application.Features.Auth;
+using ExpenseTracker.Application.Features.Categories;
 using ExpenseTracker.Application.Features.Customers;
 using ExpenseTracker.Application.Features.Wallets;
 using ExpenseTracker.Application.Interfaces;
 using ExpenseTracker.Application.Settings;
+using ExpenseTracker.Domain.Features.Categories;
 using ExpenseTracker.Domain.Features.Customers;
 using ExpenseTracker.Domain.Features.Wallets;
 using ExpenseTracker.Infrastructure.Persistence.Customers;
 using ExpenseTracker.Infrastructure.Features;
 using ExpenseTracker.Infrastructure.Persistence;
+using ExpenseTracker.Infrastructure.Persistence.Categories;
 using ExpenseTracker.Infrastructure.Persistence.Wallets;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -47,6 +50,10 @@ builder.Services.AddScoped<IWalletRepository, WalletRepository>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -126,6 +133,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
 //app.UseExceptionHandlingMiddleware();
 
 
